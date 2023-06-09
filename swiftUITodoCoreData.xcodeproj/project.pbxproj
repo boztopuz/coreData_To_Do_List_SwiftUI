@@ -13,6 +13,7 @@
 		962998772A33334C0034EF4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962998762A33334C0034EF4D /* Preview Assets.xcassets */; };
 		962998792A33334C0034EF4D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962998782A33334C0034EF4D /* Persistence.swift */; };
 		9629987C2A33334C0034EF4D /* swiftUITodoCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9629987A2A33334C0034EF4D /* swiftUITodoCoreData.xcdatamodeld */; };
+		962998842A33346D0034EF4D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962998832A33346D0034EF4D /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		962998762A33334C0034EF4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		962998782A33334C0034EF4D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9629987B2A33334C0034EF4D /* swiftUITodoCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = swiftUITodoCoreData.xcdatamodel; sourceTree = "<group>"; };
+		962998832A33346D0034EF4D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		9629986E2A33334B0034EF4D /* swiftUITodoCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				962998822A3334610034EF4D /* View */,
 				9629986F2A33334B0034EF4D /* swiftUITodoCoreDataApp.swift */,
 				962998712A33334B0034EF4D /* ContentView.swift */,
 				962998732A33334B0034EF4D /* Assets.xcassets */,
@@ -71,6 +74,14 @@
 				962998762A33334C0034EF4D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		962998822A3334610034EF4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				962998832A33346D0034EF4D /* Home.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 			files = (
 				9629987C2A33334C0034EF4D /* swiftUITodoCoreData.xcdatamodeld in Sources */,
 				962998792A33334C0034EF4D /* Persistence.swift in Sources */,
+				962998842A33346D0034EF4D /* Home.swift in Sources */,
 				962998722A33334B0034EF4D /* ContentView.swift in Sources */,
 				962998702A33334B0034EF4D /* swiftUITodoCoreDataApp.swift in Sources */,
 			);
