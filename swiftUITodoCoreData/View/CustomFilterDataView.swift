@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct CustomFilterDataView<Content: View>: View {
-    var content: (Task) -> Content
+    var content: ([Task], [Task]) -> Content
     @FetchRequest private var result: FetchedResults<Task>
-    init(displaypendingTask: Bool, filterDate: Date, content: @escaping (Task) -> Content) {
+    init(filterDate: Date, @ViewBuilder content: @escaping ([Task], [Task]) -> Content) {
         let calendar = Calendar.current
         let startDay = calendar.startOfDay(for: filterDate)
         let endOfDay = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: startDay)!
         
-        let predicate = NSPredicate(format: "date >= %@ AND date <= %@ AND isCompleted == %i", startDay as NSDate, (endOfDay as NSDate), !displaypendingTask)
+        let predicate = NSPredicate(format: "date >= %@ AND date <= %@", argumentArray: [startDay, endOfDay])
         
         _result = FetchRequest(entity: Task.entity(), sortDescriptors: [
             NSSortDescriptor(keyPath: \Task.date, ascending: false)
@@ -25,18 +25,14 @@ struct CustomFilterDataView<Content: View>: View {
     }
     
     var body: some View {
-        Group{
-            if result.isEmpty{
-                Text("No Task's Found")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .listRowSeparator(.hidden)
-            }else {
-                ForEach(result){
-                    content($0)
-                }
-            }
-        }
+        content(separateTasks().0, separateTasks().1)
+    }
+    
+    func separateTasks() -> ([Task], [Task]) {
+        let pendingTasks = result.filter { !$0.isComplete }
+        let completedTasks = result.filter { !$0.isComplete }
+        
+        return (pendingTasks, completedTasks)
     }
 }
 
